@@ -25,7 +25,7 @@ state = {
     const {title, body} = this.state;
     axios.post("/api/blog", {title, body}).then(res =>{
       console.log(res);
-      this.this.setState({title:"", body: ""})
+      this.setState({title:"", body: ""})
     })
   }
 

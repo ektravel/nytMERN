@@ -5,10 +5,12 @@ const mongoose = require("mongoose");
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-const blogPosts = [];
+const Blog = require("./models/blog");
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
+mongoose.connect("mongodb://localhost/nytreact");
 
 app.use(express.static("client/build"));
 
@@ -22,8 +24,10 @@ app.get("/api/test", (req, res) => {
 
 app.post("/api/blog", (req, res) => {
     console.log(req.body);
-    blogPosts.push(req.body);
-    res.json(blogPosts);
+    Blog.create(req.body).then(dbBlog => {
+    res.json(dbBlog);
+    })
+   
 });
 
 app.use(function(req, res){
