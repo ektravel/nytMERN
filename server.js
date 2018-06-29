@@ -10,7 +10,7 @@ const Blog = require("./models/blog");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-mongoose.connect("mongodb://localhost/nytreact");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/nytreact");
 
 app.use(express.static("client/build"));
 
