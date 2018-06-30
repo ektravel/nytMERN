@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-const Blog = require("./models/blog");
+const Article = require("./models/article");
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -18,21 +18,19 @@ app.get("/", (req, res) => {
     res.send("hi");
 });
 
-app.get("/api/test", (req, res) => {
-    res.json(true);
-});
+app.get("/api/article", (req, res) => {
+    console.log("this should be hit");
+    Article.find({}).then(results => res.json(results));
+ });
 
-app.post("/api/blog", (req, res) => {
+app.post("/api/article", (req, res) => {
     console.log(req.body);
-    Blog.create(req.body).then(dbBlog => {
-    res.json(dbBlog);
+    Article.create(req.body).then(dbArticle => {
+    res.json(dbArticle);
     })
    
 });
 
-app.use(function(req, res){
-    res.sendFile(path.join(__dirname, "client/build/index.html"));
-});
 
 app.listen(PORT, function() {
     console.log(`API Server now listening on PORT ${PORT}`);
