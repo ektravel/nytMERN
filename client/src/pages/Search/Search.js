@@ -11,16 +11,6 @@ class Search extends Component {
         endYear: ""
     };
 
-//           <input name="title" onChange={this.handleInputChange} value={this.state.title} id="title" />
-//           <input name="body" onChange={this.handleInputChange} value={this.state.body} id="post" />
-//           <button onClick={this.postBlog}>Submit</button>
-//         </form>
-//         <ViewBlog/>
-//       </div>
-//     )
-//   };
-// };
-
     handleInputChange = event => {
         const { name, value } = event.target;
         this.setState({

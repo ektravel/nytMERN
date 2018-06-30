@@ -11,9 +11,11 @@ const Result = (props) => (
                      <strong> Title:  {article.headline.main} </strong>
                     </p>
                     <p>Written {article.byline.original}</p> 
+                    <p>Published on: {article.pub_date}</p>
                     <a href={article.web_url} target="_blank">Link: {article.web_url}</a>
                     <div>
-                    <button type="submit" class="btn btn-outline-dark btn-sm">Save Article</button> 
+                    <button 
+                     type="submit" class="btn btn-outline-dark btn-sm">Save Article</button> 
                     </div>
             </li>
         ))}
