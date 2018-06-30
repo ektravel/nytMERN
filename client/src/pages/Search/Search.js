@@ -33,7 +33,7 @@ class Search extends Component {
         API.getArticles(this.state.subject, this.state.startYear, this.state.endYear)
         .then(res => {
             this.setState({
-                articles: res.data
+                articles: res.data.response.docs
             });
         }).catch (err => console.log(err))
     };
