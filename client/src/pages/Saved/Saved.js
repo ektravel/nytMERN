@@ -1,7 +1,5 @@
 import React, {Component} from "react";
 import API from "../../utils/API";
-import Jumbotron from "../../components/Jumbotron";
-import Nav from "../../components/Nav";
 
 class Saved extends Component {
     state = {
@@ -41,7 +39,7 @@ render() {
 
     <div className="container">
         <div className="row"> 
-            <div className="col-md-12">
+            <div className="col-md-10">
           
             </div>
         </div>

@@ -14,10 +14,6 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/nytreact");
 
 app.use(express.static("client/build"));
 
-app.get("/", (req, res) => {
-    res.send("hi");
-});
-
 app.get("/api/article", (req, res) => {
     console.log("this should be hit");
     Article.find({}).then(results => res.json(results));

@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
-import Jumbotron from "../../components/Jumbotron";
-import Nav from "../../components/Nav";
 import Result from "../../components/Result";
+import "./Search.css";
 
 class Search extends Component {
     state = {
@@ -27,16 +26,14 @@ class Search extends Component {
         this.setState({
             [name]: value
         });
-        console.log(this.state);
     };
 
     handleFormSubmit = event => {
         event.preventDefault();
         API.getArticles(this.state.subject, this.state.startYear, this.state.endYear)
-        .then(data => {
-            console.log(data.data.response.docs);
+        .then(res => {
             this.setState({
-                articles: data.data.response.docs
+                articles: res.data
             });
         }).catch (err => console.log(err))
     };
@@ -44,10 +41,6 @@ class Search extends Component {
     render() {
         return (
             <div>
-                {/* <Nav/>
-                <Jumbotron>
-                <h2> Search Articles </h2>
-                </Jumbotron> */}
                 <form>
                     <div className="form-group">
                     <label for="subject">Subject</label>

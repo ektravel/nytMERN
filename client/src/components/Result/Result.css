@@ -1,0 +1,25 @@
+a:link {
+    text-decoration: none;
+    color: black;
+    font-weight: normal;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:active {
+    text-decoration: underline;
+}
+
+.resultDiv{
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+h3 {
+    margin-left: 15px;
+}
