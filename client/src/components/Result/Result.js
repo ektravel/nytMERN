@@ -6,7 +6,6 @@ const Result = (props) => (
         <h3>Search Results</h3>
         {props.dataArray.map(article => (
             <li className="list-group-item list-group-item-action" key={article._id}>
-                {/* <a href={article.web_url} target="_blank"> */}
                     <p>
                      <strong> Title:  {article.headline.main} </strong>
                     </p>
@@ -14,7 +13,7 @@ const Result = (props) => (
                     <p>Published on: {article.pub_date}</p>
                     <a href={article.web_url} target="_blank">Link: {article.web_url}</a>
                     <div>
-                    <button 
+                    <button onClick={this.handleFormSubmit}
                      type="submit" class="btn btn-outline-dark btn-sm">Save Article</button> 
                     </div>
             </li>
